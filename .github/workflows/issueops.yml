@@ -66,18 +66,7 @@ jobs:
               core.setFailed(`Action failed with error ${err}`);
             }
             
-           # console.log("Adding issue to Milestone [${{ env.MILESTONE }}]")
-            #try {
-             # await github.rest.issues.update({
-             # issue_number: context.issue.number,
-              #owner: context.repo.owner,
-              #repo: context.repo.repo,
-              #milestone: ${{ env.MILESTONE }}
-             #}) 
-            #} catch(err) {
-             # core.setFailed(`Action failed with error ${err}`);
-            #}
-            
+                       
             console.log("Creating repo from template")
             try {
               await github.rest.repos.createUsingTemplate({
