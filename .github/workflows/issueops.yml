@@ -7,11 +7,11 @@ on:
 jobs:
   create-repo:
     runs-on: ubuntu-latest
-    environment: ci-cd-scripts
+    environment: Aman1029
     if: contains(github.event.issue.labels.*.name, 'issueops:new-repo')
-    env:
+    #env:
       # ID of Milestone to group the issue in
-      MILESTONE: 1
+     # MILESTONE: 1
     steps:
         
       - name: Print Context
@@ -66,17 +66,17 @@ jobs:
               core.setFailed(`Action failed with error ${err}`);
             }
             
-            console.log("Adding issue to Milestone [${{ env.MILESTONE }}]")
-            try {
-              await github.rest.issues.update({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              milestone: ${{ env.MILESTONE }}
-             }) 
-            } catch(err) {
-              core.setFailed(`Action failed with error ${err}`);
-            }
+           # console.log("Adding issue to Milestone [${{ env.MILESTONE }}]")
+            #try {
+             # await github.rest.issues.update({
+             # issue_number: context.issue.number,
+              #owner: context.repo.owner,
+              #repo: context.repo.repo,
+              #milestone: ${{ env.MILESTONE }}
+             #}) 
+            #} catch(err) {
+             # core.setFailed(`Action failed with error ${err}`);
+            #}
             
             console.log("Creating repo from template")
             try {
