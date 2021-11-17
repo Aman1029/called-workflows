@@ -92,6 +92,7 @@ jobs:
 
   # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows
   configure-repo:
+  run: echo '${{ needs.create-repo.outputs.org }}'
     uses: ci-cd-scripts/called-workflows/.github/workflows/configure-repo.yml@main
     if: contains(github.event.issue.labels.*.name, 'issueops:new-repo')
     needs: create-repo
