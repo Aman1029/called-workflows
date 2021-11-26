@@ -91,17 +91,17 @@ jobs:
       enableForking:      ${{ steps.create-github-repo.outputs.enableForking }}
 
   # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows
-  configure-repo:
-    uses: ci-cd-scripts/called-workflows/.github/workflows/configure-repo.yml@main
-    if: contains(github.event.issue.labels.*.name, 'issueops:new-repo')
-    needs: create-repo
-    with:
-      org:                ${{ needs.create-repo.outputs.org }}
-      repo-name:          ${{ needs.create-repo.outputs.newRepo }}
-      teams:              ${{ needs.create-repo.outputs.teams }}
-      enableIssue:        ${{ needs.create-repo.outputs.enableIssue }}
-      enableProject:      ${{ needs.create-repo.outputs.enableProject }}
-      enableSquashMerge:  ${{ needs.create-repo.outputs.enableSquashMerge }}
-      enableForking:      ${{ needs.create-repo.outputs.enableForking }}
-    secrets:
-      caller-token: ${{ secrets.ORG_TOKEN }}
+  #configure-repo:
+   # uses: ci-cd-scripts/called-workflows/.github/workflows/configure-repo.yml@main
+    #if: contains(github.event.issue.labels.*.name, 'issueops:new-repo')
+   # needs: create-repo
+#    with:
+ #     org:                ${{ needs.create-repo.outputs.org }}
+  #    repo-name:          ${{ needs.create-repo.outputs.newRepo }}
+   #   teams:              ${{ needs.create-repo.outputs.teams }}
+    #  enableIssue:        ${{ needs.create-repo.outputs.enableIssue }}
+     # enableProject:      ${{ needs.create-repo.outputs.enableProject }}
+  #    enableSquashMerge:  ${{ needs.create-repo.outputs.enableSquashMerge }}
+   #   enableForking:      ${{ needs.create-repo.outputs.enableForking }}
+   # secrets:
+    #  caller-token: ${{ secrets.ORG_TOKEN }}
